@@ -9,3 +9,7 @@
 
 2. Ability to create the binary tree shown in the figure
    - Check if all are added with using size method in Binary Tree
+
+3. Ability to search 63 in the Binary Tree
+   - Implement Search method and recursively search left or right
+     nodes to find 63
