@@ -4,9 +4,14 @@ import java.util.Scanner;
 
 public class BinarySearchTree<T> {
     Node<T> root;
+    int size = 0;
 
     public BinarySearchTree() {
         this.root = null;
+    }
+
+    public int getSize(){
+        return size;
     }
 
     public static void main(String[] args) {
@@ -18,15 +23,25 @@ public class BinarySearchTree<T> {
         boolean flag = true;
         while (flag) {
 
-            System.out.println("\n1.To insert new node\n2.To display BST\n3.To exit");
+            System.out.println("\n1.To insert new node\n2.To display BST\n3.To get size of BST\n4.To exit");
             int choice = scanner.nextInt();
 
             switch (choice) {
 
                 case 1:
-                    System.out.println("Enter the data to be inserted in new node : ");
-                    int data = scanner.nextInt();
-                    bst.insertNewNode(data);
+                    bst.insertNewNode(56);
+                    bst.insertNewNode(30);
+                    bst.insertNewNode(70);
+                    bst.insertNewNode(22);
+                    bst.insertNewNode(40);
+                    bst.insertNewNode(11);
+                    bst.insertNewNode(3);
+                    bst.insertNewNode(16);
+                    bst.insertNewNode(60);
+                    bst.insertNewNode(95);
+                    bst.insertNewNode(65);
+                    bst.insertNewNode(63);
+                    bst.insertNewNode(67);
                     break;
 
                 case 2:
@@ -34,6 +49,11 @@ public class BinarySearchTree<T> {
                     break;
 
                 case 3:
+                    int sizeOfBST = bst.getSize();
+                    System.out.println("Size is : "+sizeOfBST);
+                    break;
+
+                case 4:
                     System.out.println("\nExited !!!");
                     flag = false;
                     break;
@@ -62,6 +82,7 @@ public class BinarySearchTree<T> {
         if (root == null) {
 
             root = newNode;
+            size ++;
             return;
 
         } else {
@@ -80,6 +101,7 @@ public class BinarySearchTree<T> {
                     if (current == null) {
 
                         parent.left = newNode;
+                        size++;
                         return;
 
                     }
@@ -93,6 +115,7 @@ public class BinarySearchTree<T> {
                     if (current == null) {
 
                         parent.right = newNode;
+                        size++;
                         return;
 
                     }
