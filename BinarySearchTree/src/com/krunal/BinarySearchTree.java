@@ -23,37 +23,33 @@ public class BinarySearchTree<T> {
         boolean flag = true;
         while (flag) {
 
-            System.out.println("\n1.To insert new node\n2.To display BST\n3.To get size of BST\n4.To exit");
+            System.out.println("\n1.To insert new node\n2.To search node\n3.To display BST\n4.To get size of BST\n5.To exit");
             int choice = scanner.nextInt();
 
             switch (choice) {
 
                 case 1:
-                    bst.insertNewNode(56);
-                    bst.insertNewNode(30);
-                    bst.insertNewNode(70);
-                    bst.insertNewNode(22);
-                    bst.insertNewNode(40);
-                    bst.insertNewNode(11);
-                    bst.insertNewNode(3);
-                    bst.insertNewNode(16);
-                    bst.insertNewNode(60);
-                    bst.insertNewNode(95);
-                    bst.insertNewNode(65);
-                    bst.insertNewNode(63);
-                    bst.insertNewNode(67);
+                    System.out.println("Enter the data to be inserted in new node : ");
+                    int data = scanner.nextInt();
+                    bst.insertNewNode(data);
                     break;
 
                 case 2:
-                    bst.inorderTraversal(bst.root);
+                    System.out.println("Enter the data to search in BST : ");
+                    int searchData = scanner.nextInt();
+                    bst.searchNode(bst.root,searchData);
                     break;
 
                 case 3:
+                    bst.inorderTraversal(bst.root);
+                    break;
+
+                case 4:
                     int sizeOfBST = bst.getSize();
                     System.out.println("Size is : "+sizeOfBST);
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("\nExited !!!");
                     flag = false;
                     break;
@@ -124,6 +120,33 @@ public class BinarySearchTree<T> {
             }
 
         }
+    }
+
+    /**
+     * Purpose : To search node in BST by traversing
+     *
+     * @param node root node
+     * @param data input from user
+     */
+    public void searchNode(Node<T> node,int data){
+
+        boolean flag = false;
+        if(node == null)
+            System.out.println("Tree is empty");
+        else {
+            if (node.data == data) {
+                flag = true;
+                System.out.println(data + " is present in BST");
+                return;
+            }
+            if(flag == false && node.left != null){
+                searchNode(node.left,data);
+            }
+            if (flag == false && node.right != null){
+                searchNode(node.right,data);
+            }
+        }
+        System.out.println(data+" is not present in BST ");
     }
 
     /**
