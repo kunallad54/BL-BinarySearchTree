@@ -1,3 +1,12 @@
+/*************************************************************************************************
+*
+* Purpose : TO Create Binary Search Tree and Perform insert,display,search,operations on BST
+*
+* @author Krunal Lad
+* @Since 03-07-2021
+*
+**************************************************************************************************/
+
 package com.krunal;
 
 import java.util.Scanner;
